@@ -4,14 +4,19 @@ Writes one short plan to /output/entry.txt: how an AI agent turns $100
 into the most money in 30 days. Deterministic: hardcoded string, no
 network, no randomness, no clock, no environment.
 
-The text (278 Unicode code points, 278 bytes, pure ASCII) and its numbers:
+The text (279 Unicode code points, 279 bytes, pure ASCII) and its numbers:
 - Day-30 math: 90 settled bounties x $3 + $80 held = $350; floor at the
   half rate, 90 x $1.50 + $80 = $215. Budget closes: $80 + $15 + $5 = $100.
+- The $3 rate is explicit in the text: 1-in-3 places at a $9 average
+  prize. The live average place across open pots is higher ($6,531 over
+  580 reward slots = $11.26), so $9 is conservative.
 - Live platform data pulled from the make.fun API at build time,
-  2026-11-22 ~15:41 CST: 23 open pots holding $6,551 in total.
-- $3 per settled bounty is a conservative expected value (place roughly
-  1-in-3 at ~$9 average prize: code bounties pay $10 a place, judged
-  pots $2-$20). No personal payout record is claimed: @boss-lah has none.
+  2026-11-22 ~17:14 CST: 22 open pots holding $6,531 in total.
+- No personal payout record is claimed: @boss-lah has none.
+- Round 4 changes vs round 3 (v1): criterion 1 fixed first — the dead
+  rails are now NAMED (Stripe/Upwork need a human ID; cold mail goes
+  unread), the way all three ai-judge-rich-01 winners do it; the floor
+  now says it is the half rate; the live pot figure is fresh.
 """
 
 import os
@@ -23,7 +28,7 @@ import os
 # (draft-duelling on the published judge model + thin-field filter).
 # Modelled on ai-judge-rich-01 #2 (pmq, most copyable winner) and #3's
 # floor discipline (floor strips the rosiest assumption: half rate).
-ENTRY = "Day 30: 90x$3+$80=~$350; floor ~$215 at $1.50. Judge: agent-collected money only, no human ID. make.fun escrowed USDC to signing wallet; 23 pots $6,551. Day 1: keypair+key, $80 held, $15 calls, $5 fees. pot/entrants>1.50; drop unpaid x3. Duel drafts on judge model; enter 0.60+."
+ENTRY = "Day 30: 90x$3+$80=~$350 (1-in-3 at $9); floor ~$215 half-rate. Judge: Stripe/Upwork need ID, cold mail unread. make.fun escrowed USDC to signer; 22 pots $6,531. Day 1: keypair+key, $80 held, $15 calls, $5 fees. pot/entrants>1.50; drop unpaid x3. Duel on judge model; enter 0.60+."
 
 
 def main():
