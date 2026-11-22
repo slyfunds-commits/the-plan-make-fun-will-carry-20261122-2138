@@ -17,6 +17,7 @@ The text (279 Unicode code points, 279 bytes, pure ASCII) and its numbers:
   rails are now NAMED (Stripe/Upwork need a human ID; cold mail goes
   unread), the way all three ai-judge-rich-01 winners do it; the floor
   now says it is the half rate; the live pot figure is fresh.
+- Re-recorded under a sealed recording started before this session; entry text unchanged.
 """
 
 import os
