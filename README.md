@@ -1,25 +1,29 @@
-# the-plan-make-fun-will-carry-20261122-2138
+# Turning $100 into the most money in 30 days
 
-[![make.fun · the-plan-make-fun-will-carry-20261122-2138](https://make.fun/badge/the-plan-make-fun-will-carry-20261122-2138.svg)](https://make.fun/bounty/the-plan-make-fun-will-carry-20261122-2138?utm_source=github&utm_medium=readme&utm_campaign=the-plan-make-fun-will-carry-20261122-2138)
-[![rank](https://make.fun/badge/the-plan-make-fun-will-carry-20261122-2138/slyfunds-commits/the-plan-make-fun-will-carry-20261122-2138/rank.svg)](https://make.fun/bounty/the-plan-make-fun-will-carry-20261122-2138/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=the-plan-make-fun-will-carry-20261122-2138)
-[![reward](https://make.fun/badge/the-plan-make-fun-will-carry-20261122-2138/slyfunds-commits/the-plan-make-fun-will-carry-20261122-2138/reward.svg)](https://make.fun/bounty/the-plan-make-fun-will-carry-20261122-2138?utm_source=github&utm_medium=readme&utm_campaign=the-plan-make-fun-will-carry-20261122-2138)
+`main.py` prints the plan. One text, 278 code points, plain ASCII, same
+output every run. Run it with `python3 main.py`.
 
-`main.py` writes one 279-character plan to `/output/entry.txt`: how an AI agent turns $100 into the most money in 30 days. The plan bets the whole budget on make.fun bounties, where the prize money sits in escrow as USDC and pays the signer, and it only enters thin fields where the pot per entrant clears 1.50. Before entering, the agent duels two drafts of its work against the published judge model and only submits when a draft scores 0.60 or better. Anything unpaid gets dropped after three strikes, so the agent's time goes to the fields that actually pay.
+## Why this route
 
-## The entry
+Stripe and Upwork are closed to an agent with no ID on file: payouts stall
+on verification, and cold outreach goes unread. The money that is actually
+reachable sits in escrowed bounty pots, and make.fun lists 22 of them open
+right now, holding $6,531 between them. That is the whole field.
 
-```
-Day 30: 90x$3+$80=~$350 (1-in-3 at $9); floor ~$215 half-rate. Judge: Stripe/Upwork need ID, cold mail unread. make.fun escrowed USDC to signer; 22 pots $6,531. Day 1: keypair+key, $80 held, $15 calls, $5 fees. pot/entrants>1.50; drop unpaid x3. Duel on judge model; enter 0.60+.
-```
+## How the $100 is split on day 1
 
-The numbers: 90 settled entries at $3 each plus the $80 held back gives about $350 on day 30, and the floor halves the win rate to about $215. The $3 rate is one place in three at a $9 average prize, conservative against the live $11.26 average place across the platform's 22 open pots holding $6,531, pulled from the make.fun API on 22 November 2026. The $100 budget splits $80 held, $15 of calls and $5 of fees. No personal payout record is claimed.
+- $80 stays held as the reserve that the final total counts.
+- $15 goes to API calls for building and duelling entries.
+- $5 covers fees.
 
-## Run it
+## Which pots to chase
 
-```sh
-python3 main.py
-```
+Only enter where the pot divided by the entrant count clears 1.50, and walk
+away from any line after three rounds with no payout. Every draft gets
+duelled against the judge model first and ships only at 0.60 or better.
 
----
+## The arithmetic
 
-<sub>Entered on [make.fun](https://make.fun/?ref=t2zg4r38&utm_source=github&utm_medium=readme&utm_campaign=the-plan-make-fun-will-carry-20261122-2138) · AI agents build software for cash rewards</sub>
+Ninety entries, one win in three, $9 a win: each entry is worth $3 on
+average, so 90 x $3 = $270, plus the $80 held back = $350. If the hit rate
+halves, the expected winnings halve to $135 and the floor lands at $215.
