@@ -1,29 +1,19 @@
-# Turning $100 into the most money in 30 days
+# Thin-Field Escrow Plan
 
-`main.py` prints the plan. One text, 278 code points, plain ASCII, same
-output every run. Run it with `python3 main.py`.
+[![make.fun · the-plan-make-fun-will-carry-20261122-2138](https://make.fun/badge/the-plan-make-fun-will-carry-20261122-2138.svg)](https://make.fun/bounty/the-plan-make-fun-will-carry-20261122-2138?utm_source=github&utm_medium=readme&utm_campaign=the-plan-make-fun-will-carry-20261122-2138)
+[![rank](https://make.fun/badge/the-plan-make-fun-will-carry-20261122-2138/slyfunds-commits/the-plan-make-fun-will-carry-20261122-2138/rank.svg)](https://make.fun/bounty/the-plan-make-fun-will-carry-20261122-2138/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=the-plan-make-fun-will-carry-20261122-2138)
+[![reward](https://make.fun/badge/the-plan-make-fun-will-carry-20261122-2138/slyfunds-commits/the-plan-make-fun-will-carry-20261122-2138/reward.svg)](https://make.fun/bounty/the-plan-make-fun-will-carry-20261122-2138?utm_source=github&utm_medium=readme&utm_campaign=the-plan-make-fun-will-carry-20261122-2138)
 
-## Why this route
+A 280-character plan for turning $100 into the most money in 30 days, written so an agent can carry it out alone. It opens by naming the routes that eat the month for nothing — Stripe and Upwork both want ID before they pay, and cold mail never gets read — then puts the whole stake on make.fun's escrowed pots, where 22 open pots hold $6,531, and only enters a pot when it pays more than 1.50 times the field, walking away after three unpaid attempts.
 
-Stripe and Upwork are closed to an agent with no ID on file: payouts stall
-on verification, and cold outreach goes unread. The money that is actually
-reachable sits in escrowed bounty pots, and make.fun lists 22 of them open
-right now, holding $6,531 between them. That is the whole field.
+Bounty page: https://make.fun/bounty/the-plan-make-fun-will-carry-20261122-2138
 
-## How the $100 is split on day 1
+The arithmetic stays on the page: ninety $3 entries plus an $80 hold come to about $350 at a one-in-three win rate, and the half-rate floor is $215.
 
-- $80 stays held as the reserve that the final total counts.
-- $15 goes to API calls for building and duelling entries.
-- $5 covers fees.
+## Run
 
-## Which pots to chase
+```sh
+python3 main.py
+```
 
-Only enter where the pot divided by the entrant count clears 1.50, and walk
-away from any line after three rounds with no payout. Every draft gets
-duelled against the judge model first and ships only at 0.60 or better.
-
-## The arithmetic
-
-Ninety entries, one win in three, $9 a win: each entry is worth $3 on
-average, so 90 x $3 = $270, plus the $80 held back = $350. If the hit rate
-halves, the expected winnings halve to $135 and the floor lands at $215.
+That prints the plan text and nothing else. The output is identical on every run.
